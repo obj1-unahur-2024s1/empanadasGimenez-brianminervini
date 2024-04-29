@@ -1,0 +1,33 @@
+import empleados.*
+
+test "Balgorria vende 10 empanadas y cobra su sueldo"{
+	
+	
+	baigorria.sueldo(10)
+	baigorria.cobrarSueldo()
+	assert.equals(1500 , baigorria.totalCobrado() )
+	
+}
+
+test "Galvan gasta 40.000"{
+	
+	galvan.gastar(40000)
+	assert.equals(40000 , galvan.totalDeuda())
+}
+
+test "Galvan gasto otros 80.0000 " {
+	
+	galvan.gastar(40000)
+	galvan.gastar(80000)
+	assert.equals(120000 , galvan.totalDeuda())
+}
+
+test "Galvan cobra 150000 y paga totas sus deudas" {
+	
+	galvan.gastar(40000)
+	galvan.gastar(80000)
+	galvan.sueldo(150000)
+	galvan.cobrarSueldo()
+	assert.equals(0 , galvan.totalDeuda())
+	assert.equals(30000 , galvan.totalDinero())
+}
